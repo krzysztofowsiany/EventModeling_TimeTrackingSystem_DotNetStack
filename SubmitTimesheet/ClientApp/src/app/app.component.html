@@ -1,6 +1,34 @@
 <body>
-  <app-nav-menu></app-nav-menu>
+
   <div class="container">
-    <router-outlet></router-outlet>
+    SubmitTimesheet
+    <form (ngSubmit)="submit()" >
+
+      <div class="mb-4">
+        <label  for="timesheetid"l>Timesheetid (guid)</label>
+        <input type="text" class="form-control" id="timesheetid"  required  [(ngModel)]="submitTimesheet.TimesheetId" name="timesheetid">
+        <button (click)="generateGuidForTimesheetId()">generate timesheetId</button>
+      </div>
+
+      <div class="mb-4">
+        <label for="userId">UserId (guid)</label>
+        <input type="text" class="form-control" id="userId"  required  [(ngModel)]="submitTimesheet.UserId" name="userId">
+        <button (click)="generateGuidForUserId()">generate userId</button>
+      </div>
+
+
+      <div class="mb-4">
+        <label for="startDate">StartDate</label>
+        <input type="text" class="form-control" id="startDate"  required  [(ngModel)]="submitTimesheet.StartDate" name="startDate">
+          <label for="endDate">EndDate</label>
+          <input type="text" class="form-control" id="endDate"  required  [(ngModel)]="submitTimesheet.EndDate" name="endDate">
+        <button (click)="generateDates()">generate dates</button>
+      </div>
+
+      <button (click)="generateAll()">generate all</button>
+      <button type="submit">Submit</button>
+
+    </form>
   </div>
 </body>
+

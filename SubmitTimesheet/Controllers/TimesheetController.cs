@@ -1,4 +1,3 @@
-using SubmitTimesheet.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,18 +7,23 @@ namespace SubmitTimesheet.Controllers
     public class TimesheetController : Controller
     {
         private IMediator _mediator;
-        private SaveEventService _saveEventService;
 
         public TimesheetController(IMediator mediator)
         {
             _mediator = mediator;
-            _saveEventService = new SaveEventService();
         }
         
-        [HttpGet("[action]")]
-        public IActionResult WeatherForecasts()
+        [HttpPost("submitTimesheet")]
+        public IActionResult SubmitTimesheet([FromBody] Commands.SubmitTimesheet command)
         {
-            return Ok("");
+            _mediator.Send(command);
+            return Ok("submitted");
+        }
+        
+        [HttpGet("ping")]
+        public IActionResult Pong()
+        {
+            return Ok("pong");
         }
     }
 }
