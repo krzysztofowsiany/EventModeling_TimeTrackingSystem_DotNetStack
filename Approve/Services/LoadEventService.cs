@@ -1,30 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace Approve.Services
 {
-    public class SaveEventService
+    public class LoadEventService
     {
-        public string SaveEvent<T>(T timesheetApproved, DateTime dateTime)
+        public IEnumerable<string> LoadEvent<T>()
         {
-            var time = dateTime.Ticks.ToString();
+            var eventName = typeof(T).Name;
+            var eventFiles = Directory.GetFiles(GetEventPath(), "*.json");
+                //.Where(file => file.Contains(eventName));
             
-            var fileName = $"{time}_{typeof(T).Name}.json";
-            
-            var eventString =  JsonConvert.SerializeObject(timesheetApproved);
-
-            var eventPath = GetEventPath();
-            var filePath = Path.Combine(eventPath, fileName);
-            
-            System.IO.File.WriteAllText(filePath, eventString);
-            
-            return filePath;
+            return eventFiles;
         }
 
         private string GetEventPath()
         {
-            var path =  Path.Combine(Directory.GetCurrentDirectory(), "./_events");
+            var path =  Path.Combine(Path.GetTempPath(), "TimeTrackingSystemEvents");
+
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             return path;

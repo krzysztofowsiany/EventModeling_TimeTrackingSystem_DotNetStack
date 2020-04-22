@@ -7,10 +7,18 @@
 
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="8.0.1" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
         <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="_events\637230964802132412_TimesheetApproved.json" />
+      <_ContentIncludedByDefault Remove="_events\637230965094659383_TimesheetApproved.json" />
     </ItemGroup>
 
 </Project>

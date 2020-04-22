@@ -2,7 +2,7 @@
 using System.IO;
 using Newtonsoft.Json;
 
-namespace Approve.Services
+namespace SubmitTimesheet.Services
 {
     public class SaveEventService
     {
@@ -25,6 +25,7 @@ namespace Approve.Services
         private string GetEventPath()
         {
             var path =  Path.Combine(Path.GetTempPath(), "TimeTrackingSystemEvents");
+
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             return path;
