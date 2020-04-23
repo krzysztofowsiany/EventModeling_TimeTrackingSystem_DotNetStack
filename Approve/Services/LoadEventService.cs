@@ -11,19 +11,10 @@ namespace Approve.Services
         public IEnumerable<string> LoadEvent<T>()
         {
             var eventName = typeof(T).Name;
-            var eventFiles = Directory.GetFiles(GetEventPath(), "*.json");
+            var eventFiles = Directory.GetFiles(PathProvider.GetEventPath(), "*.json");
                 //.Where(file => file.Contains(eventName));
             
             return eventFiles;
-        }
-
-        private string GetEventPath()
-        {
-            var path =  Path.Combine(Path.GetTempPath(), "TimeTrackingSystemEvents");
-
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            return path;
         }
     }
 }
