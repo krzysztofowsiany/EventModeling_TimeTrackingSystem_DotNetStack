@@ -17,17 +17,18 @@ namespace SubmitTimesheet.Services
             var eventPath = GetEventPath();
             var filePath = Path.Combine(eventPath, fileName);
             
-            System.IO.File.WriteAllText(filePath, eventString);
+            File.WriteAllText(filePath, eventString);
             
             return filePath;
         }
 
-        private string GetEventPath()
+        private static string GetEventPath()
         {
             var path =  Path.Combine(Path.GetTempPath(), "TimeTrackingSystemEvents");
 
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
+            
             return path;
         }
     }

@@ -12,14 +12,14 @@ namespace SubmitTimesheet.Controllers
         {
             _mediator = mediator;
         }
-        
+
         [HttpPost("submitTimesheet")]
         public IActionResult SubmitTimesheet([FromBody] Commands.SubmitTimesheet command)
         {
             _mediator.Send(command);
             return Ok("submitted");
         }
-        
+
         [HttpGet("ping")]
         public IActionResult Pong()
         {
