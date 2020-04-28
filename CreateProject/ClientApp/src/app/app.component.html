@@ -1,0 +1,28 @@
+<body>
+
+<div class="container">
+  CreateProject
+  <form (ngSubmit)="submit()" >
+
+    <div class="mb-4">
+      <label  for="name"l>ProjectName</label>
+      <input type="text" class="form-control" id="name"  required  [(ngModel)]="project.Name" name="name">
+    </div>
+
+    <div class="mb-4">
+      <label for="projectId">ProjectId (guid)</label>
+      <input type="text" class="form-control" id="projectId"  required  [(ngModel)]="project.ProjectId" name="projectId">
+    </div>
+
+    <div class="mb-4">
+      <label for="projectOwnerId">ProjectOwnerId (guid)</label>
+      <input type="text" class="form-control" id="projectOwnerId"  required  [(ngModel)]="project.ProjectOwnerId" name="projectOwnerId">
+    </div>
+    <button (click)="generateIds()">generate ids</button>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
+</body>
+
