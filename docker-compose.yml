@@ -1,0 +1,38 @@
+version: '3'
+services:
+  router:
+    build: ./router
+    ports:
+      - "8080:8080"
+    depends_on:
+      - login
+    volumes:
+      - ./events:/events
+  login:
+    build: ./login
+    ports:
+      - "8010:8080"
+    volumes:
+      - ./events:/events
+  
+  scan-receipt:
+    build: ./scan-receipt
+    ports:
+      - "8013:8080"
+    volumes:
+      - ./events:/events
+  golang:
+    image: golang:1.12
+    command: go run /app/main.go
+    working_dir: /app
+    ports:
+      - "8011:80"
+    volumes:
+      - ./golang:/app
+      - ./events:/events
+  survey:
+    build: ./survey
+    ports:
+      - "8012:8080"
+    volumes:
+      - ./events:/events
