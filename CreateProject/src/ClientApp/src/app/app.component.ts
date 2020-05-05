@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
 
-  private generateIds() {
+  generateIds() {
     const n = this.getRandomInt(1, 50);
     this.project.ProjectId =  uuid.v4();
     this.project.ProjectOwnerId =  uuid.v4();

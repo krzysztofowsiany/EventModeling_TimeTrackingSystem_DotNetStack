@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Approve.Services
+namespace HourlyRate.Services
 {
     static class PathProvider
     {

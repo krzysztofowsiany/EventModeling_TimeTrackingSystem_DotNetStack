@@ -1,38 +1,37 @@
 version: '3'
 services:
-  router:
-    build: ./router
+  nginx-router:
+    build: ./NginxRouter
     ports:
-      - "8080:8080"
+      - "80:80"
     depends_on:
-      - login
+      - create-project
     volumes:
       - ./events:/events
-  login:
-    build: ./login
+  create-project:
+    build: ./CreateProject
     ports:
-      - "8010:8080"
+      - "5001:80"
     volumes:
-      - ./events:/events
-  
-  scan-receipt:
-    build: ./scan-receipt
+      - ./events:/events  
+    environment:
+      EVENT_PATH: /events
+      ASPNETCORE_URLS: https://+:80
+  approve:
+    build: ./Approve
     ports:
-      - "8013:8080"
+      - "5002:80"
     volumes:
       - ./events:/events
-  golang:
-    image: golang:1.12
-    command: go run /app/main.go
-    working_dir: /app
+    environment:
+      EVENT_PATH: /events
+      ASPNETCORE_URLS: https://+:80
+  submit-timesheet:
+    build: ./SubmitTimesheet
     ports:
-      - "8011:80"
-    volumes:
-      - ./golang:/app
-      - ./events:/events
-  survey:
-    build: ./survey
-    ports:
-      - "8012:8080"
+      - "5003:80"
     volumes:
       - ./events:/events
+    environment:
+      EVENT_PATH: /events
+      ASPNETCORE_URLS: https://+:80

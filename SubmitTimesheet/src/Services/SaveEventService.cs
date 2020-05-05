@@ -14,22 +14,12 @@ namespace SubmitTimesheet.Services
             
             var eventString =  JsonConvert.SerializeObject(timesheetApproved);
 
-            var eventPath = GetEventPath();
+            var eventPath = PathProvider.GetEventPath();
             var filePath = Path.Combine(eventPath, fileName);
             
             File.WriteAllText(filePath, eventString);
             
             return filePath;
-        }
-
-        private static string GetEventPath()
-        {
-            var path =  Path.Combine(Path.GetTempPath(), "TimeTrackingSystemEvents");
-
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            
-            return path;
         }
     }
 }

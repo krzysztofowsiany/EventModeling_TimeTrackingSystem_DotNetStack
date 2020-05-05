@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Approve", "Approve\Approve.csproj", "{90A83C29-E133-4BD0-AB7C-DDAB6860EF3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Approve", "Approve\src\Approve.csproj", "{90A83C29-E133-4BD0-AB7C-DDAB6860EF3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubmitTimesheet", "SubmitTimesheet\SubmitTimesheet.csproj", "{32709AD8-DC9C-4D44-9620-58B02191D6BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubmitTimesheet", "SubmitTimesheet\src\SubmitTimesheet.csproj", "{32709AD8-DC9C-4D44-9620-58B02191D6BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HourlyRate", "HourlyRate\HourlyRate.csproj", "{3598BDB8-60D1-43DE-BFB4-22EAFFB83E48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HourlyRate", "HourlyRate\src\HourlyRate.csproj", "{3598BDB8-60D1-43DE-BFB4-22EAFFB83E48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateProject", "CreateProject\CreateProject.csproj", "{70636761-43B9-462F-B315-DA51606F0F21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateProject", "CreateProject\src\CreateProject.csproj", "{70636761-43B9-462F-B315-DA51606F0F21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

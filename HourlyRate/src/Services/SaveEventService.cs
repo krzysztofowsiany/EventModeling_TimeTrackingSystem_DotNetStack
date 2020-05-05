@@ -14,21 +14,12 @@ namespace HourlyRate.Services
             
             var eventString =  JsonConvert.SerializeObject(timesheetApproved);
 
-            var eventPath = GetEventPath();
+            var eventPath = PathProvider.GetEventPath();
             var filePath = Path.Combine(eventPath, fileName);
             
             System.IO.File.WriteAllText(filePath, eventString);
             
             return filePath;
-        }
-
-        private string GetEventPath()
-        {
-            var path =  Path.Combine(Path.GetTempPath(), "TimeTrackingSystemEvents");
-
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            return path;
         }
     }
 }

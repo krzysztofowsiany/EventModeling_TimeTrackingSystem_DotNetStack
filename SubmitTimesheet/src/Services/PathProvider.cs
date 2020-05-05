@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Approve.Services
+namespace SubmitTimesheet.Services
 {
     static class PathProvider
     {
