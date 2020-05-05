@@ -3,5 +3,5 @@
 [Dd]ebug/
 [Rr]elease/
 .idea/
-_events/
+events/*.*
 out/
