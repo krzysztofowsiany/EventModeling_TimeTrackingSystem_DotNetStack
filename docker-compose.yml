@@ -37,3 +37,13 @@ services:
     environment:
       EVENT_PATH: /events
       ASPNETCORE_URLS: https://+:80
+
+  hourly-rate:
+    build: ./HourlyRate
+    expose:
+      - "80"
+    volumes:
+      - ./events:/events
+    environment:
+      EVENT_PATH: /events
+      ASPNETCORE_URLS: https://+:80
